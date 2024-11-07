@@ -10,6 +10,6 @@ Un manejador de chatrooms con multiples usuarios, cada uno puede crear un chat c
 7. ```py main.py```
 8. listo
 ## To-Do de mejoras
-- CSS responsivo
-- Mejorar documentación
-- chatrooms grupales
+- [ ] CSS responsivo
+- [ ] Mejorar documentación
+- [ ] chatrooms grupales

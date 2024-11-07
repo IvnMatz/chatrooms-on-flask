@@ -37,6 +37,7 @@ def logout():
     session.pop('username', None)
     session.pop('pwrd', None)
     session.pop('id', None)
+    session.pop('color', None)
     return redirect(url_for('index'))
 
 #CHAT ROUTES -----------------------------------------
@@ -81,7 +82,8 @@ def handle_message(msg):
     message = {
         'username' : session['username'],
         'message' : str(msg.get("msg")),
-        'channel' : int(msg.get("channel"))
+        'channel' : int(msg.get("channel")),
+        'colorU' : session['color']
     }
     send(message, broadcast=True)
 

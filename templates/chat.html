@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/chatS.css') }}">
 </head>
 <body>
-    <h1> {{ chatname }} </h1>
-    <h2 id="chatid"> {{chatid}} </h2>
+    
+    <div class="centered">
+        <div class="title">
+    <h1 class="title"> {{ chatname }} #</h1>
+    <h2 id="chatid" class="title"> {{chatid}} </h2>
+    </div>
     <div id="chat-box">
 
     </div>
     <div class="send">
         <input type="text" id="message">
         <button onclick="sendMessage()"> Send Message </button>
+        <a href="/chatrooms"> Return to chatrooms </a>
     </div>
+
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/getMsg.js') }}"></script>

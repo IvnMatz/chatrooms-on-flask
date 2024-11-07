@@ -1,4 +1,4 @@
-from flask import Blueprint, request, session, jsonify
+from flask import Blueprint, request, session, jsonify, redirect, url_for
 import pyodbc
 
 routesbp = Blueprint('rutas', __name__)
@@ -25,7 +25,7 @@ def registerN():
     except Exception as e:
         return str(e)
 
-    return jsonify({'message' : 'registered'})
+    return redirect(url_for("login"))
 
 @routesbp.route("/log-in-account", methods=['POST'])
 def loginAc():
@@ -44,12 +44,13 @@ def loginAc():
             session['username'] = returnedUser[0][1]
             session['pwrd'] = returnedUser[0][2]
             session['id'] = returnedUser[0][0]
+            session['color'] = "#ffffff"
         else:
             return jsonify({'message' : 'wrongCred'})
     except Exception as e:
         return str(e)
     print(session)
-    return jsonify({'message' : 'logged'})
+    return redirect(url_for("chatrooms"))
 
 @routesbp.route('/create-new-chat', methods=['POST'])
 def Cchat():
@@ -73,4 +74,21 @@ def Cchat():
         conn.close()
     except Exception as e:
         return str(e)
-    return jsonify({'message' : 'chat created'})
+    return redirect(url_for("chatrooms"))
+
+@routesbp.route('/change-user-color', methods=['POST'])
+def changeColor():
+    color = request.form['color']
+
+    if str(color) == 'red':
+        session['color'] = "#bd4747"
+    elif str(color) == 'black':
+        session['color'] = "#474747"
+    elif str(color) == 'green':
+        session['color'] = "#6ecc6b"
+    elif str(color) == 'yellow':
+        session['color'] = "#f2fa82"
+    elif str(color) == 'white':
+        session['color'] = "#ffffff"
+    
+    return jsonify({'message' : 'color changed'})
