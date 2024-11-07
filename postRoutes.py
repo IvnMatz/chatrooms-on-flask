@@ -46,7 +46,7 @@ def loginAc():
             session['id'] = returnedUser[0][0]
             session['color'] = "#ffffff"
         else:
-            return jsonify({'message' : 'wrongCred'})
+            return redirect(url_for("login"))
     except Exception as e:
         return str(e)
     print(session)

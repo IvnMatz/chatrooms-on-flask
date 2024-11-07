@@ -9,6 +9,15 @@
 <body>
     <h3> {{ user.username }} # {{user.id}} </h3>
     <div class="centeredF">
+
+        <div class="tabs">
+            <button id="bc"> Chats </button>
+            <button id="bcc"> Create Chat </button>
+            <button id="bcuc"> Change User Color </button>
+        </div>
+
+        <div class="chatL" id="ChatList">
+            <h3> Chats: </h3>
         {% if chats %}
             {% for chat in chats %}
             <a class="chat" href="/chat/{{ chat[0] }}">
@@ -20,33 +29,36 @@
         {% else %}
             <h3> there's no chats yet </h3>
         {% endif %}
-    </div>
+        </div>
 
-    <div class="create-chatForm">
-        <form id="form" action="/create-new-chat" method="POST">
-            <input type="text" placeholder="chatname" name="chatname" autocomplete="off">
-            <input type="text" placeholder="Id user" name="id_memb" autocomplete="off">
-            <button type="submit"> Create chat </button>
-        </form>
-    </div>
+        <div class="create-chatForm" id="chatForm">
+            <h3> Create new chat: </h3>
+            <form id="form" action="/create-new-chat" method="POST">
+                <input type="text" placeholder="chatname" name="chatname" autocomplete="off">
+                <input type="text" placeholder="Id user" name="id_memb" autocomplete="off">
+                <button type="submit"> Create chat </button>
+            </form>
+        </div>
 
-    <div class="create-chatForm">
-        <h3> Change User Color </h3>
-        <form id="form2" action="/change-user-color" method="POST">
-            <input type="radio" value="red" name="color" id="r">
-            <label for="r"> Red </label>
-            <input type="radio" value="black" name="color" id="b">
-            <label for="b"> black</label>
-            <input type="radio" value="green" name="color" id="g">
-            <label for="g"> green </label>
-            <input type="radio" value="yellow" name="color" id="y">
-            <label for="y"> yellow </label>
-            <input type="radio" value="white" name="color" id="w">
-            <label for="w"> white </label>
-            <button type="submit"> Change </button>
-        </form>
+        <div class="change-color" id="changeC">
+            <h3> Change User Color </h3>
+            <form id="form2" action="/change-user-color" method="POST">
+                <input type="radio" value="red" name="color" id="r">
+                <label for="r"> Red </label>
+                <input type="radio" value="black" name="color" id="b">
+                <label for="b"> black</label>
+                <input type="radio" value="green" name="color" id="g">
+                <label for="g"> green </label>
+                <input type="radio" value="yellow" name="color" id="y">
+                <label for="y"> yellow </label>
+                <input type="radio" value="white" name="color" id="w">
+                <label for="w"> white </label>
+                <button type="submit"> Change </button>
+            </form>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/changeColor.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatroom.js') }}"></script>
 </body>
 </html>
