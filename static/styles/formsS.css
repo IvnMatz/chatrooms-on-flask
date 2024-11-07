@@ -1,0 +1,45 @@
+body, html{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, sans-serif;
+}
+
+.centeredF {
+    margin: 0;
+    padding: 10% 12%;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.centeredF *{
+    display: block;
+    margin-bottom: 10%;
+}
+
+#form button{
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+}
+
+#form input{
+    width: 88%;
+    height: 30%;
+    padding: 10px;
+}
+
+

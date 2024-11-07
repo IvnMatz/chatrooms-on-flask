@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatrooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/chatroomsS.css') }}">
+</head>
+<body>
+    <div class="centeredF">
+        {% if chats %}
+            {% for chat in chats %}
+            <a class="chat" href="/chat/{{ chat[0] }}">
+            <div class="chatD">
+                <h3> {{ chat[1] }} #{{ chat[0] }} </h3>
+            </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <h3> there's no chats yet </h3>
+        {% endif %}
+    </div>
+
+    <div class="create-chatForm">
+        <form id="form" action="/create-new-chat" method="POST">
+            <input type="text" placeholder="chatname" name="chatname" autocomplete="off">
+            <input type="text" placeholder="Id user" name="id_memb" autocomplete="off">
+            <button type="submit"> Create chat </button>
+        </form>
+    </div>
+</body>
+</html>

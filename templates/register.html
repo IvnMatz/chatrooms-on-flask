@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/formsS.css') }}">
+</head>
+<body>
+    <div class="centeredF">
+        <h2> Add a new user </h2>
+        <form id="form" action="/register-new-user" method="POST">
+            <input type="text" placeholder="username" autocomplete="off" name="username" maxlength="29">
+            <input type="password" placeholder="password" autocomplete="off" name="password" maxlength="19">
+            <button type="submit"> Register </button>
+        </form>
+    </div>
+</body>
+</html>

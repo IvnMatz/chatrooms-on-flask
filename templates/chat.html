@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+</head>
+<body>
+    <h1> {{ chatname }} </h1>
+    <h2 id="chatid"> {{chatid}} </h2>
+    <div id="chat-box">
+
+    </div>
+    <div class="send">
+        <input type="text" id="message">
+        <button onclick="sendMessage()"> Send Message </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/getMsg.js') }}"></script>
+</body>
+</html>
