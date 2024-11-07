@@ -8,7 +8,14 @@
 </head>
 <body>
     
-    <div class="centered">
+<div class="centered">
+    <form id="form2" action="/add-user-to" method="POST"> 
+        <input type="text" placeholder="new user's id" name="newID" autocomplete="off"> 
+        <input type="hidden" value="{{ chatid }}" name="chat">
+        <button type="submit"> Add new user</button> 
+    </form>
+
+
         <div class="title">
     <h1 class="title"> {{ chatname }} #</h1>
     <h2 id="chatid" class="title"> {{chatid}} </h2>
@@ -26,5 +33,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/getMsg.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/addUser.js') }}"></script>
 </body>
 </html>

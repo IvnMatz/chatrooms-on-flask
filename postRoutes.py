@@ -92,3 +92,19 @@ def changeColor():
         session['color'] = "#ffffff"
     
     return jsonify({'message' : 'color changed'})
+
+@routesbp.route('/add-user-to', methods=['POST'])
+def addUser():
+    userID = request.form['newID']
+    chat = request.form['chat']
+
+    try:
+        conn = pyodbc.connect(conn_str)
+        cursor = conn.cursor()
+        cursor.execute(f"INSERT INTO membersCR values (\'{int(userID)}\', \'{int(chat)}\', \'member\')")
+        cursor.commit()
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        return str(e)
+    return jsonify({'message' : 'user added'})
