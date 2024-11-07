@@ -74,7 +74,7 @@ def chat(chat_id):
         chatname = chatname[0][0]
     except Exception as e:
         return str(e)
-    return render_template('chat.html', chatname=chatname, chatid=chat_id)
+    return render_template('chat.html', chatname=chatname, chatid=chat_id, user=session)
 
 @socketio.on('message')
 def handle_message(msg):
