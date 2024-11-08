@@ -83,10 +83,11 @@ def handle_message(msg):
         'username' : session['username'],
         'message' : str(msg.get("msg")),
         'channel' : int(msg.get("channel")),
-        'colorU' : session['color']
+        'colorU' : session['color'],
+        'Wcolor' : session['Wcolor']
     }
     send(message, broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, host="0.0.0.0", port=5000)
-    #socketio.run(app, debug=True)
+    #socketio.run(app, host="0.0.0.0", port=5000)
+    socketio.run(app, debug=True)

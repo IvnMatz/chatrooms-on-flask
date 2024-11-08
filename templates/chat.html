@@ -7,27 +7,32 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/chatS.css') }}">
 </head>
 <body>
+    <h1 id="chatid">  {{chatid}} </h1>
     
 <div class="centered">
+    <div class="tabs">
+        <button id="c"> {{ chatname }} # {{chatid}} </button>
+        <button id="au"> Users </button>
+        <a href="/chatrooms"> Chatrooms </a>
+    </div>
+    
+    <div id="AddUser">
     <form id="form2" action="/add-user-to" method="POST"> 
         <input type="text" placeholder="new user's id" name="newID" autocomplete="off"> 
         <input type="hidden" value="{{ chatid }}" name="chat">
         <button type="submit"> Add new user</button> 
     </form>
-
-
-        <div class="title">
-    <h1 class="title"> {{ chatname }} #</h1>
-    <h2 id="chatid" class="title"> {{chatid}} </h2>
     </div>
+
+    <div id="chat">
     <div id="chat-box">
 
     </div>
     <div class="send">
-        <h4> {{user.username}} # {{user.id}} </h4>
         <input type="text" id="message">
-        <button onclick="sendMessage()"> Send Message </button>
-        <a href="/chatrooms"> Return to chatrooms </a>
+        <button onclick="sendMessage()"> Enviar </button>
+        
+    </div>
     </div>
 
 </div>
@@ -35,5 +40,6 @@
     <script src="{{ url_for('static', filename='js/socketio.js') }}"></script>
     <script src="{{ url_for('static', filename='js/getMsg.js') }}"></script>
     <script src="{{ url_for('static', filename='js/addUser.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 </body>
 </html>

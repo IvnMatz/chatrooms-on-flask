@@ -12,6 +12,8 @@ socket.on('message', function(msg) {
     const messageElement = document.createElement("div");
     messageElement.textContent = String(msg.username) + " : " + String(msg.message);
     messageElement.style.backgroundColor = String(msg.colorU);
+    messageElement.style.color = String(msg.Wcolor);
+    messageElement.className = "messages";
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
     } // Auto scroll hacia el último mensaje

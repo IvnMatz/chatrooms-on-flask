@@ -79,17 +79,10 @@ def Cchat():
 @routesbp.route('/change-user-color', methods=['POST'])
 def changeColor():
     color = request.form['color']
-
-    if str(color) == 'red':
-        session['color'] = "#bd4747"
-    elif str(color) == 'black':
-        session['color'] = "#474747"
-    elif str(color) == 'green':
-        session['color'] = "#6ecc6b"
-    elif str(color) == 'yellow':
-        session['color'] = "#f2fa82"
-    elif str(color) == 'white':
-        session['color'] = "#ffffff"
+    Lcolor = request.form['Lcolor']
+    print(color)
+    session['color'] = str(color)
+    session['Wcolor'] = str(Lcolor)
     
     return jsonify({'message' : 'color changed'})
 
